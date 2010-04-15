@@ -2,55 +2,60 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title class="lipsum"></title>
-    <link rel="shortcut icon" href="/static/img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/css/grid.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script type="text/javascript" src="/javascripts/moretext-1.0.js"></script>
-    <script type="text/javascript">
-$(function() {
-    $("#button\\\:regenerate-text").bind("click", function() {
-        $("*[class*=lipsum]").empty().moreText();
-        return false;
-    })
-});
-    </script>
+    <title>More</title>
+    <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/css/text.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/css/application.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/css/base-min.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/css/coderay.css" type="text/css">
+
 </head>
 <body>
-    <div class="wrap container_12 clearfix">
-        <div class="grid_12">
-            <h1>The Chinese Lorem Ipsum You Love.</h1>
-            <p class="lipsum"></p>
+    <div id="wrap-background">
+    <div id="wrap-foreground">
+
+    <div class="container_12 clearfix">
+        <div id="hd" class="grid_12">
+            <h1><a href="/">MoreText.js: 一用就愛上的中文假文產生器</a></h1>
+            <div class="leafage"></div>
+            <div class="sunshine"></div>
         </div>
 
-        <div class="grid_12">
-            <div class="grid_4 alpha">
-                <blockquote>
-                    <span class="quote-mark">“</span>
-                    <span class="lipsum"></span>
-                    <span class="quote-mark">”</span>
-                    <br/><span class="author"> — <a href="http://handlino.com">Handlino</a></span>
-
-                </blockquote>
-            </div>
-
-            <div class="grid_8 omega">
-                <h2 class="lipsum"></h2>
-                <div class="lipsum(5)"></div>
-            </div>
+        <div class="grid_12 clearfix">
+            <p>這個網站的文字(幾乎)都是自動產生出來的。特別是以下幾大段。</p>
         </div>
 
-        <div class="grid_12">
+        <div class="grid_6"><h2 class="lipsum"></h2><div class="lipsum(20)"></div></div>
+        <div class="grid_6"><h2 class="lipsum"></h2><div class="lipsum(20)"></div></div>
+        <hr class="clear">
+
+        <div class="grid_4"><h2 class="lipsum"></h2><div class="lipsum(10)"></div></div>
+        <div class="grid_4"><h2 class="lipsum"></h2><div class="lipsum(10)"></div></div>
+        <div class="grid_4"><h2 class="lipsum"></h2><div class="lipsum(10)"></div></div>
+        <hr class="clear">
+
+        <div class="grid_12 clearfix">
+            <h2>這些文字倒底是什麼意思？</h2>
+            <p>是什麼意思並不重要，因為它們全是自動產生出來的。是我們在各處需找公有領域的文本做為語料，打亂之後重新組合的產物。</p>
+
+            <h2>我還是不理解為何網站上要出現這些不明意義的文字</h2>
+            <p>這類文字的主要用途不在於讓大眾閱讀，而是讓設計師拿來做為填充版面的內容物。</p>
+
+            <h2>使用者見証</h2>
+            <p><span class="lipsum(1)"></span>- hlb</p>
+            <p><span class="lipsum(2)"></span>- EvenWu</p>
+            <p><span class="lipsum(3)"></span>- Leolin</p>
+
             <h2>喜歡我們產生的文字嗎？你也可以在自己網站動態產生。</h2>
-            <ul>
+            <ol>
                 <li>在你的網站加上這段語法：
                     <textarea class="sample-code" rows="5">
 &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt;
 &lt;script src="http://more.handlino.com/javascripts/moretext-1.0.js" type="text/javascript"&gt;&lt;/script&gt;
                     </textarea>
                 </li>
-                <li>在想要填入文字的標籤加上 <code>class="ipsum(1)"</code>，括號裡的數字代表你希望填入多少句話。
+                <li>在想要填入文字的標籤加上 <code>class="ipsum(1)"</code>，括號裡的數字代表你希望填入多少句話。省略括號時則為一句。
                     <textarea class="sample-code" rows="2">
 長官勉勵我們：「&lt;span class="lipsum"&gt;&lt;/span&gt;」
                     </textarea>
@@ -58,21 +63,23 @@ $(function() {
                 <li>搞定了！長官勉勵我們：「<span class="lipsum"></span>」
                 </li>
                 <li>有任何建議，請<a href="http://handlino.com/">聯絡我們</a>。</li>
-            </ul>
+            </ol>
         </div>
 
         <div class="grid_12">
             <div id="footer">
-                <span class="fancy">Brought to you by</span><br /><a href="http://handlino.com/">Handlino.com</a>
+                <address>
+                    &copy; 2010 <a href="http://handlino.com/">Handlino Inc.</a>
+                    &nbsp;|&nbsp;
+                    <a href="http://twitter.com/handlino/">Follow us on Twitter</a>
+                </address>
             </div>
         </div>
     </div>
 
-    <div id="control">
-        <ul>
-            <li><a href="javascript:void(0);" id="button:regenerate-text">Regenerate Text</a></li>
+    </div></div>
 
-        </ul>
-    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/moretext-1.0.js"></script>
 </body>
 </html>
