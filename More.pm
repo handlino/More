@@ -2,6 +2,7 @@ package More;
 use Dancer;
 use JSON qw(to_json);
 use Acme::Lingua::ZH::Remix;
+use Encode qw(encode_utf8);
 
 get '/' => sub {
     template 'index';
@@ -18,7 +19,7 @@ get '/sentences.json' => sub {
 
     my $json_text = to_json({ sentences => \@sentences });
 
-    return $cb ? "${cb}(${json_text})" : $json_text;
+    return encode_utf8( $cb ? "${cb}(${json_text})" : $json_text );
 };
 
 true;
