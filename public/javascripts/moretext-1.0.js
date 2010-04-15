@@ -1,5 +1,8 @@
 (function($) {
-    $.moreText = { 'server': 'http://more.handlino.com' };
+    $.moreText = { 
+        'version': '1.0',
+        'server': 'http://more.handlino.com'
+    };
 
     $.fn.moreText = function(n) {
         var sentences = [];
