@@ -36,16 +36,16 @@
         <hr class="clear">
 
         <div class="grid_12 clearfix">
-            <h2>這些文字倒底是什麼意思？</h2>
+            <h2>這些文字到底是什麼意思？</h2>
             <p>是什麼意思並不重要，因為它們全是自動產生出來的。是我們在各處需找公有領域的文本做為語料，打亂之後重新組合的產物。</p>
 
             <h2>我還是不理解為何網站上要出現這些不明意義的文字</h2>
             <p>這類文字的主要用途不在於讓大眾閱讀，而是讓設計師拿來做為填充版面的內容物。</p>
 
             <h2>使用者見証</h2>
-            <p><span class="lipsum(1)"></span>- hlb</p>
-            <p><span class="lipsum(2)"></span>- EvenWu</p>
-            <p><span class="lipsum(3)"></span>- Leolin</p>
+            <p>「MoreText 是劃世代的發明，讓我製作網站得心應手。」 - hlb</p>
+            <p>「<span class="lipsum(2)"></span>」- EvenWu</p>
+            <p>「moretext 是一個帥氣的服務，我用了三分鐘後，就再也離不開它了，而且，它產生的語料庫有時很好笑...」 - Leo</p>
 
             <h2>喜歡我們產生的文字嗎？你也可以在自己網站動態產生。</h2>
             <ol>
