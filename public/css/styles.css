@@ -1,0 +1,192 @@
+/* @group ie6 fix */
+
+body {
+    behavior: url("css/csshover3.htc");
+}
+
+.pngfix, .browsers a, .browsers img {
+    behavior: url(css/iepngfix.htc);
+}
+
+/* @end */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #9a9a9a;
+    font: 13px/26px "Microsoft JhengHei", "Helvetica Neue", Helvetica, "Heiti TC", Arial, Geneva, sans-serif, 微軟正黑體;
+    text-shadow: black 0 -1px 1px;
+    padding-bottom: 90px;
+    background: #1a1c1c url(/img/move-light.png) no-repeat center 0;
+}
+
+a {
+    color: #cecece;
+    border-style: none;
+    outline: none;
+}
+
+img {
+    border: none;
+}
+
+a:hover {
+    color: white;
+}
+
+.wrap {
+    padding-top: 100px;
+}
+
+h1 {
+    font: 55px "HelveticaNeue-Light", "HelveticaNeue", Helvetica, Arial, sans-serif;
+    letter-spacing: -1px;
+    text-shadow: rgba(150,210,255,.8) 0 0px 10px;
+    color: #dddddd;
+}
+
+.browsers {
+    background: url(/img/box.png) no-repeat center 0;
+    height: 200px;
+    width: 700px;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-left: auto;
+    left: -21px;
+}
+
+.browsers a {
+    float: left;
+    text-align: center;
+    line-height: 19px;
+    text-decoration: none;
+    text-shadow: rgba(0,0,0,0.65) 0 1px 1px;
+    padding-top: 30px;
+    margin-top: 3px;
+    display: block;
+    width: 24.9%;
+}
+
+.browsers a:hover {
+    background: url(/img/highlight.png) no-repeat center -6px;
+}
+
+.browsers span {
+    display: block;
+}
+
+.browsers span.browser-name {
+    font-weight: bold;
+    margin-top: -5px;
+}
+
+.browsers a span.version {
+    font-weight: normal;
+    font-size: 11px;
+    font-style: normal;
+    color: #737373;
+}
+
+h2 {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    color: white;
+    text-shadow: black 0 1px 1px;
+}
+
+#footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.fancy {
+    font: bold 13px "Courier New", Courier, mono;
+    color: #495050;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+a.button {
+    width: 154px;
+    height: 26px;
+    display: block;
+    line-height: 25px;
+    background: url(/img/button.png) 0 0;
+    font-size: 12px;
+    text-align: center;
+    color: #c0c0c0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a.button:hover {
+    color: white;
+}
+
+a.button:active {
+    position: relative;
+    top: 1px;
+}
+
+.section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: #505050;
+    background: #1f2121 center;
+    padding: 15px 30px;
+}
+
+.fr {
+    float: right;
+}
+
+blockquote {
+    color: white;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.quote-mark {
+    font-size: 30px;
+}
+
+blockquote span.author {
+    font-size: 13px;
+    margin-top: 10px;
+    float: left;
+    letter-spacing: normal;
+    font-weight: bold;
+    font-style: italic;
+    padding-left: 2em;
+}
+
+#control {
+    position: fixed;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    width: 120px;
+    height: 100px;
+    padding: 10px;
+}
+#control:hover {
+    opacity: 1;
+}
