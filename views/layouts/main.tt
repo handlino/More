@@ -50,15 +50,11 @@
             <h2>喜歡我們產生的文字嗎？你也可以在自己網站動態產生。</h2>
             <ol>
                 <li>在你的網站加上這段語法：
-                    <textarea class="sample-code" rows="5">
-&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt;
-&lt;script src="http://more.handlino.com/javascripts/moretext-1.0.js" type="text/javascript"&gt;&lt;/script&gt;
-                    </textarea>
+                    <textarea class="sample-code" rows="5">&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="http://more.handlino.com/javascripts/moretext-1.0.js" type="text/javascript"&gt;&lt;/script&gt;</textarea>
                 </li>
                 <li>在想要填入文字的標籤加上 <code>class="ipsum(1)"</code>，括號裡的數字代表你希望填入多少句話。省略括號時則為一句。
-                    <textarea class="sample-code" rows="2">
-長官勉勵我們：「&lt;span class="lipsum"&gt;&lt;/span&gt;」
-                    </textarea>
+                    <textarea class="sample-code" rows="2">長官勉勵我們：「&lt;span class="lipsum"&gt;&lt;/span&gt;」</textarea>
                 </li>
                 <li>搞定了！長官勉勵我們：「<span class="lipsum"></span>」
                 </li>
