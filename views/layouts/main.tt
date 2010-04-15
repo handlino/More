@@ -14,7 +14,7 @@
 <body>
     <div class="wrap container_12 clearfix">
         <div class="grid_12">
-            <h1 class="lipsum"></h1>
+            <h1>The Chinese Lorem Ipsum You Love.</h1>
             <p class="lipsum"></p>
         </div>
 
@@ -37,37 +37,31 @@
 
         <div class="grid_12">
 
-            <div class="grid_6 alpha">
-                <h2 class="lipsum"></h2>
-                <div class="lipsum(5)"></div>
-            </div>
-            <div class="grid_6 omega">
-                <h2 class="lipsum"></h2>
-                <div class="lipsum(5)"></div>
-            </div>
-        </div>
-
-        <div class="grid_12">
             <div class="grid_4 alpha">
-                <h2 class="lipsum"></h2>
-                <div class="lipsum(5)"></div>
+                <textarea class="lipsum(10)" cols="40" rows="20"></textarea>
             </div>
-            <div class="grid_4 omega">
-                <h2 class="lipsum"></h2>
-                <div class="lipsum(5)"></div>
-
-            </div>
-            <div class="grid_4 omega">
-                <h2 class="lipsum"></h2>
-                <div class="lipsum(5)"></div>
+            <div class="grid_8 omega">
+                <h2>喜歡我們產生的文字嗎？你也可以在自己網站動態產生。</h2>
+                <ul>
+                    <li>在你的網站加上這段語法：
+                        <textarea class="sample-code" rows="5">
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="http://more.handlino.com/api/moretext.js" type="text/javascript"&gt;&lt;/script&gt;
+                        </textarea>
+                    </li>
+                    <li>在想要填入文字的標籤加上 <code>class="ipsum(1)"</code>，括號裡的數字代表你希望填入多少句話。
+                        <textarea class="sample-code" rows="5">
+總統勉勵我們：「&lt;span class="lispum"&gt;&lt;/span&gt;」
+                        </textarea>
+                    </li>
+                    <li>有任何建議，請<a href="http://handlino.com/">聯絡我們</a>。</li>
+                </ul>
             </div>
         </div>
-
 
         <div class="grid_12">
             <div id="footer">
-
-                <span class="fancy">Brought to you by</span><br /><a href="#">Handlino.com</a>
+                <span class="fancy">Brought to you by</span><br /><a href="http://handlino.com/">Handlino.com</a>
             </div>
         </div>
     </div>
