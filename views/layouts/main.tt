@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/css/application.css" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="/css/base-min.css" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="/css/coderay.css" type="text/css">
-
 </head>
 <body>
     <div id="wrap-background">
@@ -37,7 +36,7 @@
 
         <div class="grid_12 clearfix">
             <h2>這些文字到底是什麼意思？</h2>
-            <p>是什麼意思並不重要，因為它們全是自動產生出來的。是我們在各處需找公有領域的文本做為語料，打亂之後重新組合的產物。</p>
+            <p>是什麼意思並不重要，因為它們全是自動產生出來的。是我們在各處尋找公有領域的文本做為語料，打亂之後重新組合的產物。</p>
 
             <h2>我還是不理解為何網站上要出現這些不明意義的文字</h2>
             <p>這類文字的主要用途不在於讓大眾閱讀，而是讓設計師拿來做為填充版面的內容物。類似的工具還有李怡志先生的<a href="http://www.richyli.com/tool/loremipsum/">亂數假文產生器</a>。</p>
