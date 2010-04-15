@@ -42,10 +42,12 @@ a:hover {
 }
 
 h1 {
-    font: 55px "HelveticaNeue-Light", "HelveticaNeue", Helvetica, Arial, sans-serif;
+    font-family: Baskerville, "Times New Roman", Times, serif;
+    font-size: 36px;
     letter-spacing: -1px;
     text-shadow: rgba(150,210,255,.8) 0 0px 10px;
     color: #dddddd;
+    margin-bottom: 5px;
 }
 
 .browsers {
@@ -189,4 +191,11 @@ blockquote span.author {
 }
 #control:hover {
     opacity: 1;
+}
+
+textarea {
+    display: block;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 20px;
 }
