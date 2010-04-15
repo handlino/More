@@ -244,3 +244,11 @@ textarea.sample-code {
     margin-bottom: 20px;
     background: #ffc;
 }
+
+q:before {
+    content:"「";
+}
+q:after {
+    content:"」";
+}
+

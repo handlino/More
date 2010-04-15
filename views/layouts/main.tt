@@ -43,9 +43,10 @@
             <p>這類文字的主要用途不在於讓大眾閱讀，而是讓設計師拿來做為填充版面的內容物。類似的工具還有李怡志先生的<a href="http://www.richyli.com/tool/loremipsum/">亂數假文產生器</a>。</p>
 
             <h2>使用者見証</h2>
-            <p>「MoreText 是劃世代的發明，讓我製作網站得心應手。」 - hlb</p>
-            <p>「<span class="lipsum(2)"></span>」- EvenWu</p>
-            <p>「MoreText 是一個帥氣的服務，我用了三分鐘後，就再也離不開它了，而且，它產生的語料庫有時很好笑...」 - Leo</p>
+            
+            <p><q>MoreText 是劃世代的發明，讓我製作網站得心應手。</q> - <a href="http://twitter.com/hlb">hlb</a></p>
+            <p><q><span class="lipsum(2)"></span></q> - <a href="http://twitter.com/EvenWu">EvenWu</a></p>
+            <p><q>MoreText 是一個帥氣的服務，我用了三分鐘後，就再也離不開它了，而且，它產生的語料庫有時很好笑...</q> - <a href="http://twitter.com/sillyleo">Leo</a></p>
 
             <h2>喜歡我們產生的文字嗎？你也可以在自己網站動態產生。</h2>
             <ol>
