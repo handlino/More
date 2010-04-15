@@ -7,9 +7,15 @@
     <link rel="stylesheet" type="text/css" href="/css/grid.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-
-    <script type="text/javascript" src="/javascripts/moretext.js"></script>
-    <script type="text/javascript" src="/javascripts/application.js"></script>
+    <script type="text/javascript" src="/javascripts/moretext-1.0.js"></script>
+    <script type="text/javascript">
+$(function() {
+    $("#button\\\:regenerate-text").bind("click", function() {
+        $("*[class*=lipsum]").empty().moreText();
+        return false;
+    })
+});
+    </script>
 </head>
 <body>
     <div class="wrap container_12 clearfix">
@@ -41,7 +47,7 @@
                 <li>在你的網站加上這段語法：
                     <textarea class="sample-code" rows="5">
 &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt;
-&lt;script src="http://more.handlino.com/javascripts/moretext.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="http://more.handlino.com/javascripts/moretext-1.0.js" type="text/javascript"&gt;&lt;/script&gt;
                     </textarea>
                 </li>
                 <li>在想要填入文字的標籤加上 <code>class="ipsum(1)"</code>，括號裡的數字代表你希望填入多少句話。
