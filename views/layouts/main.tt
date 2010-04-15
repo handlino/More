@@ -58,18 +58,31 @@
                 </li>
                 <li>搞定了！長官勉勵我們：「<span class="lipsum"></span>」
                 </li>
-                <li>有任何建議，請<a href="http://handlino.com/">聯絡我們</a>。</li>
             </ol>
+            
         </div>
 
-        <div class="grid_12">
-            <div id="footer">
-                <address>
-                    &copy; 2010 <a href="http://handlino.com/">Handlino Inc.</a>
-                    &nbsp;|&nbsp;
-                    <a href="http://twitter.com/handlino/">Follow us on Twitter</a>
-                </address>
-            </div>
+        <div class="grid_2">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <p>
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="98VBU77SX65ES">
+                <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypal.com/zh_HK/i/scr/pixel.gif" width="1" height="1">
+                </p>
+            </form>
+        </div>
+
+        <div class="grid_10">
+            <p>本服務由<a href="http://handlino.com/">和多服份有限公司</a>提供。若覺得這個小服務還不錯，可以點擊這個 Paypal 捐款按鈕來贊助 MoreText 這個計畫。對於捐款者，我們獻上最高的感激。有任何建議，請<a href="http://handlino.com/">聯絡我們</a>，如果想知道我們的最新動態，可以追蹤<a href="http://twitter.com/handlino/">我們的 Twitter 帳號</a></p>
+        </div>
+
+        <div id="footer" class="grid_12 clearfix">
+            <address>
+                &copy; 2010 <a href="http://handlino.com/">Handlino Inc.</a>
+                &nbsp;|&nbsp;
+                <a href="http://twitter.com/handlino/">Follow us on Twitter</a>
+            </address>
         </div>
     </div>
 
