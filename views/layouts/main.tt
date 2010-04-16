@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="/css/application.css" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="/css/base-min.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="/css/coderay.css" type="text/css">
 </head>
 <body>
     <div id="wrap-background">
@@ -60,7 +59,7 @@
                 <li>在想要填入文字的標籤加上 <code>class="ipsum(1)"</code>，括號裡的數字代表你希望填入多少句話。省略括號時則為一句。
                     <textarea class="sample-code" rows="2">長官勉勵我們：「&lt;span class="lipsum"&gt;&lt;/span&gt;」</textarea>
                 </li>
-                <li>搞定了！長官勉勵我們：「<span class="lipsum"></span>」
+                <li>搞定了！<span id="tweet">長官勉勵我們：「<span class="lipsum"></span>」</span>
                 </li>
             </ol>
             
@@ -94,7 +93,20 @@
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="/javascripts/moretext-1.0.js"></script>
-
+    <script type="text/javascript">
+        $(function() {
+            var t = null;
+            var tweet = function() {
+                if ($('#tweet span').text()) {
+                    var status = $('#tweet').text();
+                    var status_with_url = encodeURIComponent(status + ' / ' + document.title + ' ' + location.href);
+                    $('#tweet').after('<a href="http://twitter.com/?status='+status_with_url+'" target="_blank" class="tools twitter">tweet this!</a> <a href="http://www.plurk.com/?status='+status_with_url+'" target="_blank" class="tools plurk">plurk this!</a>');
+                    clearInterval(t);
+                }
+            };
+            t = setInterval(tweet, 1000);
+        });
+    </script>
 <script type="text/javascript">
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-2945555-13']);
@@ -106,5 +118,6 @@ _gaq.push(['_trackPageview']);
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 </script>
+
 </body>
 </html>
