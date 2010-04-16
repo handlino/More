@@ -194,3 +194,12 @@ a.tools {
 .facebook {
     background: url(/images/icon-facebook.png) 0 0 no-repeat;
 }
+
+#hd .tagline {
+    position: absolute;
+    top: 101px;
+}
+
+#tweet {
+    min-height: 3em;
+}

@@ -18,18 +18,23 @@
             <h1><a href="/">MoreText.js: 一用就愛上的中文假文產生器</a></h1>
             <div class="leafage"></div>
             <div class="sunshine"></div>
+            <p class="tagline">這個網站的文字幾乎都是自動產生出來的。</p>
         </div>
 
         <div class="grid_11">
-            <p>這個網站的文字(幾乎)都是自動產生出來的。特別是以下幾大段。</p>
+            <h2>長官勉勵我們：</h2>
+            <p id="tweet">「<span class="lipsum"></span>」</p>
+
+            <p>
+                <a href="javascript:;" id="reload-tweet">長官請再多說些勉勵的話</a>
+                | 覆訟長官的教誨: 
+                <a href="http://twitter.com/" target="_blank" class="tools twitter">tweet this!</a>
+                <a href="http://www.plurk.com/" target="_blank" class="tools plurk">plurk this!</a>
+            </p>
         </div>
         <div class="grid_1">
             <a name="fb_share" type="box_count" share_url="http://more.handlino.com/" href="http://www.facebook.com/sharer.php">分享</a>
         </div>
-        <hr class="clear">
-
-        <div class="grid_6"><h2 class="lipsum"></h2><div class="lipsum(20)"></div></div>
-        <div class="grid_6"><h2 class="lipsum"></h2><div class="lipsum(20)"></div></div>
         <hr class="clear">
 
         <div class="grid_4"><h2 class="lipsum"></h2><div class="lipsum(10)"></div></div>
@@ -58,8 +63,6 @@
                 </li>
                 <li>在想要填入文字的標籤加上 <code>class="ipsum(1)"</code>，括號裡的數字代表你希望填入多少句話。省略括號時則為一句。
                     <textarea class="sample-code" rows="2">長官勉勵我們：「&lt;span class="lipsum"&gt;&lt;/span&gt;」</textarea>
-                </li>
-                <li>搞定了！<span id="tweet">長官勉勵我們：「<span class="lipsum"></span>」</span>
                 </li>
             </ol>
             
@@ -104,11 +107,22 @@
                 if ($('#tweet span').text()) {
                     var status = $('#tweet').text();
                     var status_with_url = encodeURIComponent(status + ' / ' + document.title + ' ' + location.href);
-                    $('#tweet').after('<a href="http://twitter.com/?status='+status_with_url+'" target="_blank" class="tools twitter">tweet this!</a> <a href="http://www.plurk.com/?status='+status_with_url+'" target="_blank" class="tools plurk">plurk this!</a>');
-                    clearInterval(t);
+                    $("a.twitter.tools").attr("href", "http://twitter.com/?status="+status_with_url+"'");
+                    $("a.plurk.tools").attr("href", "http://www.plurk.com/?status="+status_with_url+"'");
+                    if (t) {
+                        clearInterval(t);
+                        t = null;
+                    }
                 }
             };
             t = setInterval(tweet, 1000);
+
+            $("#reload-tweet").bind("click", function() {
+                $("#tweet .lipsum").one("ajaxSuccess", function() {
+                    tweet();
+                });
+                $("#tweet .lipsum").empty().moreText();
+            });
         });
     </script>
 <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
