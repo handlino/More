@@ -21,9 +21,13 @@
             <div class="sunshine"></div>
         </div>
 
-        <div class="grid_12 clearfix">
+        <div class="grid_11">
             <p>這個網站的文字(幾乎)都是自動產生出來的。特別是以下幾大段。</p>
         </div>
+        <div class="grid_1">
+            <a name="fb_share" type="box_count" share_url="http://more.handlino.com/" href="http://www.facebook.com/sharer.php">分享</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+        </div>
+        <hr class="clear">
 
         <div class="grid_6"><h2 class="lipsum"></h2><div class="lipsum(20)"></div></div>
         <div class="grid_6"><h2 class="lipsum"></h2><div class="lipsum(20)"></div></div>
