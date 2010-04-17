@@ -122,7 +122,7 @@
                     tweet();
                 });
                 $("#tweet .lipsum").empty().moreText();
-            });
+            }).focus();
         });
     </script>
 <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
