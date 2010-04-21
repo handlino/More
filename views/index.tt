@@ -1,5 +1,60 @@
-<h2>It Works!</h2>
+        <div class="grid_11">
+            <h2>長官勉勵我們：</h2>
+            <p id="tweet">「<span class="lipsum"></span>」</p>
+            <p>
+                <a href="javascript:;" id="reload-tweet">長官請再多說些勉勵的話</a>
+                | 覆訟長官的教誨: 
+                <a href="http://twitter.com/" target="_blank" class="tools twitter">tweet this!</a>
+                <a href="http://www.plurk.com/" target="_blank" class="tools plurk">plurk this!</a>
+            </p>
+        </div>
+        <div class="grid_1">
+            <a name="fb_share" type="box_count" share_url="http://more.handlino.com/" href="http://www.facebook.com/sharer.php">分享</a>
+        </div>
+        <hr class="clear">
 
-<p>
-I'm in <code>/Users/gugod/src/More/views/index.tt</code>
-</p>
+        <div class="grid_4"><h2 class="lipsum"></h2><div class="lipsum(10)"></div></div>
+        <div class="grid_4"><h2 class="lipsum"></h2><div class="lipsum(10)"></div></div>
+        <div class="grid_4"><h2 class="lipsum"></h2><div class="lipsum(10)"></div></div>
+        <hr class="clear">
+
+        <div class="grid_12 clearfix">
+            <h2>這些文字到底是什麼意思？</h2>
+            <p>是什麼意思並不重要，因為它們全是自動產生出來的。是我們在各處尋找公有領域的文本做為語料，打亂之後重新組合的產物。</p>
+
+            <h2>我還是不理解為何網站上要出現這些不明意義的文字</h2>
+            <p>這類文字的主要用途不在於讓大眾閱讀，而是讓設計師拿來做為填充版面的內容物。類似的工具還有李怡志先生的<a href="http://www.richyli.com/tool/loremipsum/">亂數假文產生器</a>。</p>
+
+            <h2>使用者見証</h2>
+            
+            <p><q>MoreText 是劃世代的發明，讓我製作網站得心應手。</q> - <a href="http://twitter.com/hlb">hlb</a></p>
+            <p><q>MoreText 是一個帥氣的服務，我用了三分鐘後，就再也離不開它了，而且，它產生的語料庫有時很好笑...</q> - <a href="http://twitter.com/sillyleo">Leo</a></p>
+            <p><q>MoreText 讓測試網頁文字寬容度更為方便，且逗趣的文字讓設計過程增添不少樂趣。</q> - <a href="http://twitter.com/EvenWu">EvenWu</a></p>
+
+            <h2>喜歡我們產生的文字嗎？你也可以在自己網站動態產生。</h2>
+            <ol>
+                <li>在你的網站加上這段語法：
+                    <textarea class="sample-code" rows="5">&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="http://more.handlino.com/javascripts/moretext-1.0.js" type="text/javascript"&gt;&lt;/script&gt;</textarea>
+                </li>
+                <li>在想要填入文字的標籤加上 <code>class="ipsum(1)"</code>，括號裡的數字代表你希望填入多少句話。省略括號時則為一句。
+                    <textarea class="sample-code" rows="2">長官勉勵我們：「&lt;span class="lipsum"&gt;&lt;/span&gt;」</textarea>
+                </li>
+            </ol>
+            
+        </div>
+
+        <div class="grid_2">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <p>
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="98VBU77SX65ES">
+                <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypal.com/zh_HK/i/scr/pixel.gif" width="1" height="1">
+                </p>
+            </form>
+        </div>
+
+        <div class="grid_10">
+            <p>本服務由<a href="http://handlino.com/">和多股份有限公司</a>提供。若覺得這個小服務還不賴，可以點擊這個 Paypal 捐款按鈕來贊助 MoreText 這個計畫。對於捐款者，我們獻上最高的感激。有任何建議，請<a href="http://handlino.com/">聯絡我們</a>，如果想知道我們的最新動態，可以追蹤<a href="http://twitter.com/handlino/">我們的 Twitter 帳號</a></p>
+        </div>
