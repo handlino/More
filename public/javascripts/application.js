@@ -15,9 +15,9 @@ $(function() {
     t = setInterval(tweet, 1000);
 
     $("#reload-tweet").bind("click", function() {
-        $("#tweet .lipsum").one("ajaxSuccess", function() {
+        $("#tweet .lipsum").moreText(function(sentences) {
+            $(this).text(sentences[0]);
             tweet();
         });
-        $("#tweet .lipsum").empty().moreText();
     }).focus();
 });
