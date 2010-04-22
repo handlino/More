@@ -28,9 +28,9 @@ $("p").moreText(5, function(sentences) { ... });
     </div>
     <div class="section">
         <h2>API端點</h2>
-        <dt>/sentences.json</dt>
+        <dt>GET /sentences.json</dt>
             <dd>
-                <p>傳回 JSON 格式的句字。例:</p>
+                <p>傳回以 JSON 格式包裝的的句子。例:</p>
                 <pre><code>{"sentences":[ "風雨又調和著節奏，保不定不鬧出事來，也就可以得到百般的快樂。" ]}</code></pre>
 
                 <p>參數:</p>
