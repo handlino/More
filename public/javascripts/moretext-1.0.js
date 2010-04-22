@@ -5,18 +5,22 @@
     };
 
     $.fn.moreText = function(n, cb) {
+        var self = this;
+
         if ($.isFunction(n)) {
             cb = n;
             n = 1;
         }
         n = parseInt(n) || 1;
-        
-        var self = this;
+
+        if (!$.isFunction(cb)) {
+            cb = function(sentences) {
+                self.text( sentences.join("") );
+            };
+        }
+
         $.getJSON($.moreText.server + "/sentences.json?callback=?", { 'n': n }, function(data) {
-            var sentences = data.sentences;
-            if ($.isFunction(cb)) {
-                cb.call(self, sentences)
-            }
+            cb.call(self, data.sentences);
         });
     };
 
