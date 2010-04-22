@@ -3,56 +3,41 @@
 <head>
     <meta charset="utf-8">
     <title>MoreText.js: 一用就愛上的中文假文產生器</title>
-    <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="/css/text.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="/css/application.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="/css/base-min.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/stylesheets/all.css" type="text/css" media="screen, projection">
 </head>
 <body>
-    <div id="wrap-background">
-    <div id="wrap-foreground">
 
-    <div class="container_12 clearfix">
-        <div id="hd" class="grid_12">
-            <h1><a href="/">MoreText.js: 一用就愛上的中文假文產生器</a></h1>
-            <div class="leafage"></div>
-            <div class="sunshine"></div>
-            <p class="tagline">這個網站的文字幾乎都是自動產生出來的。</p>
-        </div>
-
-        <% content %>
-
-        <div id="footer" class="grid_12 clearfix">
-            <address>
-                &copy; 2010 <a href="http://handlino.com/">Handlino Inc.</a>
-                &nbsp;|&nbsp;
-                <a href="http://twitter.com/handlino/">Twitter</a>
-                &nbsp;|&nbsp;
-                <a href="http://bingo.handlino.com/">和多繽紛樂</a>
-                &nbsp;|&nbsp;
-                <a href="http://registrano.com/">Registrano, 你的活動線上報名系統</a>
-            </address>
-        </div>
+<div id="wrapper">
+    <div id="header">
+        <h1><a href="/">MoreText.js: 一用就愛上的中文假文產生器</a></h1>
+        <div class="facebook-sharer"><a name="fb_share" type="box_count" share_url="http://more.handlino.com/" href="http://www.facebook.com/sharer.php">分享</a></div>
     </div>
+    <div id="container" class="clearfix">
+        <% content %>
+    </div>
+    <div id="footer">
+        <ul class="menu clearfix">
+            <li>© 2010 <a href="http://handlino.com/">Handlino Inc.</a></li>
+            <li><a href="http://twitter.com/handlino/">Twitter</a></li>
+            <li><a href="http://bingo.handlino.com/">和多繽紛樂</a></li>
+            <li class="last"><a href="http://registrano.com/">Registrano, 你的活動線上報名系統</a></li>
+        </ul>
+    </div>
+</div>
 
-    </div></div>
-
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script type="text/javascript" src="/javascripts/moretext-1.0.js"></script>
-    <script type="text/javascript" src="/javascripts/application.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/moretext-1.0.js"></script>
+<script type="text/javascript" src="/javascripts/application.js"></script>
 <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
 <script type="text/javascript">
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-2945555-13']);
 _gaq.push(['_trackPageview']);
-
 (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 </script>
-
 </body>
 </html>
