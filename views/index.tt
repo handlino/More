@@ -37,6 +37,7 @@
             </li>
             <li><p>重新載入頁面後立刻見效！</p></li>
         </ol>
+        <p>或請參考 <a href="/api">MoreText API</a> 文件，直接使用 Javascript 函式與 JSON/JSONP API 端點。</p>
     </div>
 </div>
 <div id="sidebar">
