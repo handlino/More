@@ -31,7 +31,7 @@ $("p").moreText(5, function(sentences) { ... });
         <dt>/sentences.json</dt>
             <dd>
                 <p>傳回 JSON 格式的句字。例:</p>
-                <pre><code>{"sentences":[ &lt;句字字串&gt; ]}</code></pre>
+                <pre><code>{"sentences":[ "風雨又調和著節奏，保不定不鬧出事來，也就可以得到百般的快樂。" ]}</code></pre>
 
                 <p>參數:</p>
                 <dl>
