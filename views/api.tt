@@ -2,15 +2,57 @@
     <div class="section">
         <h2>moretext-1.0.js</h2>
         <p>
-            <code>moretext-1.0.js</code> 的永久網址為 <a href="http://more.handlino.com/javascripts/moretext-1.0.js"><code>http://more.handlino.com/javascripts/moretext-1.0.js</code></a>
+            <code>moretext-1.0.js</code> 的永久網址為 <a href="http://more.handlino.com/javascripts/moretext-1.0.js"><code>http://more.handlino.com/javascripts/moretext-1.0.js</code></a>。
         </p>
+        <dl>
+            <dt><code>$.moreText.version</code></dt>
+            <dd><p>函式版本。目前為 1.0</p></dd>
+
+            <dt><code>$.moreText.server</code></dt>
+            <dd><p>API 的伺服器。目前為 <code>http://more.handlino.com</code></p></dd>
+
+            <dt><code>$.fn.moreText([n, cb])</code></dt>
+            <dd>
+                <p>jQurey 物件方法。將選擇 jQuery 物件內容填滿假文。例：</p>
+                <p><code>$("p").moreText();</code></p>
+                <p>若參數 <code>n</code> 為整數，則表示句子數目：</p>
+                <p><code>$("p").moreText(15);</code></p>
+                <p>若參數 <code>cb</code> 為函式，則不會自動將所選元素填滿假文，而會呼叫此函式。此函式會被傳入一陣列，其內容為新產生的假文句子。n 與 cb 也可以同時使用：</p>
+                <pre><code>
+$("p").moreText(function(sentences) { ... });
+$("p").moreText(5, function(sentences) { ... });
+</code></pre>
+                <p><code>n</code> 的數值應於 1 至 100 間。若不在此範圍，或不為整數，則視為 1。</p>
+            </dd>
+        </dl>
+    </div>
+    <div class="section">
+        <h2>API端點</h2>
+        <dt>/sentences.json</dt>
+            <dd>
+                <p>傳回 JSON 格式的句字。例:</p>
+                <pre><code>{"sentences":[ &lt;句字字串&gt; ]}</code></pre>
+
+                <p>參數:</p>
+                <dl>
+                    <dt>n</dt>
+                    <dd>
+                        <p>可有可無。表示需產生的句子數。應為 1 至 100 中間的整數，若不符此規定，則預設為 1。</p>
+                    </dd>
+                    <dt>callback</dt>
+                    <dd>
+                        <p>可有可無。表示產生 JSONP 形式的輸出。此值應為一事先定義之 Javascript 函式名稱。</p>
+                    </dd>
+                </dl>
+            </dd>
+        </dl>
     </div>
 </div>
 <div id="sidebar">
     <div class="section">
-        <h3>函式與變數</h3>
+        <h3>moretext-1.0.js</h3>
         <ul>
-            <li><code>$.fn.moreText</code></li>
+            <li><code>$.fn.moreText(n, cb)</code></li>
             <li><code>$.moreText.version</code></li>
             <li><code>$.moreText.server</code></li>
         </ul>
