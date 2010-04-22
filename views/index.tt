@@ -58,7 +58,7 @@
     </div>
     <div class="section">
         <h2>勉勵我們</h2>
-        <p>本服務由<a href="http://handlino.com">和多股份有限公司</a>提供。若覺得這個小服務還不賴，可以點擊這個 Paypal 捐款按鈕來贊助 MoreText 這個計畫。對於捐款者，我們獻上最高的感激。有任何建議，請<a href="http://handlino.com">聯絡我們</a>，如果想知道我們的最新動態，可以追蹤<a href="http://twitter.com/handlino/">我們的 Twitter 帳號</a>。</p>
+        <p>本服務由<a href="http://handlino.com">和多股份有限公司</a>提供。若覺得這個小服務還不賴，可以點擊這個 Paypal 捐款按鈕來贊助 MoreText 這個計畫。對於捐款者，我們獻上最高的感激。有任何建議，請<a href="http://handlino.com/contact">聯絡我們</a>，如果想知道我們的最新動態，可以追蹤<a href="http://twitter.com/handlino/">我們的 Twitter 帳號</a>。</p>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
             <p>
                 <input type="hidden" name="cmd" value="_s-xclick">
