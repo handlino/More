@@ -50,6 +50,10 @@
         <p>這類文字的主要用途是讓設計師拿來做為填充版面的內容物，而非讓大眾閱讀。類似的工具還有李怡志先生的<a href="http://www.richyli.com/tool/loremipsum/">亂數假文產生器</a>。</p>
     </div>
     <div class="section">
+        <h3>要如何使用？</h3>
+        <p>可以將本頁產生的文字選取之後剪下(Ctrl-C)，再貼上(Ctrl-V)到其他文件視窗中，或是以嵌入語法的方式進行。還不足的話，可參考本服務的 <a href="/api">API 文件</a>。</p>
+    </div>
+    <div class="section">
         <h2>使用者見証</h2>
         <ul class="menu">
             <li>"MoreText 是劃世代的發明，讓我製作網站得心應手。" - <a href="http://twitter.com/hlb" target="_blank">hlb</a></li>
