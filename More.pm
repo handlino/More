@@ -8,10 +8,16 @@ get '/' => sub {
     template 'index';
 };
 
+get '/api' => sub {
+    template 'api';
+};
+
 get '/sentences.json' => sub {
     my $self = shift;
     my $n = params->{n} || 1;
     my $cb = params->{callback};
+
+    $n = 1 if $n > 100;
 
     my @sentences;
 
