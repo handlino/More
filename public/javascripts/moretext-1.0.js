@@ -27,7 +27,7 @@
     $(function() {
         var $lipsums = $("*[class*=lipsum]");
 
-        var n = 1;
+        var n = 0;
         $lipsums.each(function() {
             var m = 1;
             var matched = $(this).attr("class").match(/lipsum\((\d+)\)/);
@@ -37,6 +37,7 @@
             n += parseInt(m);
         });
 
+        if (n == 0) return;
         $lipsums.moreText(n, function(sentences) {
             $lipsums.each(function() {
                 var $el = $(this);
@@ -46,7 +47,8 @@
                     m = matched[1]
                 }
                 var x = "";
-                for(var i = 0; i < m; i++) { x += sentences.pop(); }
+                var i = 0;
+                for(i = 0; i < m; i++) { x += sentences.pop(); }
                 $el.append( x );
             });
         });
