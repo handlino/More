@@ -14,41 +14,47 @@ get '/api' => sub {
     template 'api';
 };
 
-my %remixer = (
-    default => Acme::Lingua::ZH::Remix->new
-);
+my %remixer = ();
+
+{
+    for my $corpus_file (<corpus/*.txt>) {
+        open(FH, "<:utf8", $corpus_file);
+        local $/ = undef;
+        my $text = <FH>;
+        close(FH);
+
+        my $remixer = Acme::Lingua::ZH::Remix->new;
+        $remixer->feed($text);
+
+        my $name = $corpus_file;
+        $name =~ s/\.txt$//;
+        $name =~ s/^corpus\///;
+
+        $remixer{$name} = $remixer;
+    }
+}
 
 get '/sentences.json' => sub {
     my $self = shift;
-    my $n = params->{n} || 1;
     my $cb = params->{callback};
-    my $corpus = params->{corpus} || "default";
+    my $n  = params->{n} || 1;
+    $n = 1 if $n > 100;
 
-    my $remixer = $remixer{$corpus};
-    unless($remixer) {
-        my $corpus_file = Dancer::Config::setting("appdir") . "/corpus/${corpus}.txt";
-        if (-f $corpus_file) {
-            open(FH, "<:utf8", $corpus_file);
-            local $/ = undef;
-            my $text = <FH>;
-            close(FH);
+    my $corpus = params->{corpus};
 
-            $remixer{$corpus} = Acme::Lingua::ZH::Remix->new;
-            $remixer{$corpus}->feed($text);
+    my $remixer;
 
-            $remixer = $remixer{$corpus};
-        }
-        else {
-            $remixer = $remixer{default};
-        }
+    if ($corpus) {
+        $remixer = $remixer{corpus}
     }
 
+    if (!$remixer) {
+        my @corpus = keys %remixer;
+        $remixer = $remixer{ $corpus[int(rand() * @corpus)] };
+    }
 
-    $n = 1 if $n > 100;
     my @sentences = map { $remixer->random_sentence } 1..$n;
-
     my $json_text = to_json({ sentences => \@sentences });
-
     return encode_utf8( $cb ? "${cb}(${json_text})" : $json_text );
 };
 
