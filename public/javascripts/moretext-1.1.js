@@ -57,7 +57,7 @@
 
         if (n == 0) return;
 
-        var m = location.search.match(/[?&]corpus=([a-z]+)/);
+        var m = location.search.match(/[?&]corpus=([a-z]+)/) || [];
         var corpus = m[1] || "";
 
         $lipsums.moreText(n, corpus, function(sentences) {
