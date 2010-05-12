@@ -39,14 +39,8 @@ get '/sentences.json' => sub {
     my $cb = params->{callback};
     my $n  = params->{n} || 1;
     $n = 1 if $n > 100;
-
     my $corpus = params->{corpus};
-
-    my $remixer;
-
-    if ($corpus) {
-        $remixer = $remixer{corpus}
-    }
+    my $remixer = $corpus ? $remixer{$corpus} : undef;
 
     if (!$remixer) {
         my @corpus = keys %remixer;
