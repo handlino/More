@@ -14,8 +14,11 @@ $(function() {
     };
     t = setInterval(tweet, 1000);
 
+    var m = location.search.match(/[?&]corpus=([a-z]+)/);
+    var corpus = m[1] || "";
+
     $("#reload-tweet").bind("click", function() {
-        $("#tweet .lipsum").moreText(function(sentences) {
+        $("#tweet .lipsum").moreText(corpus, function(sentences) {
             $(this).text(sentences[0]);
             tweet();
         });
