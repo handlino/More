@@ -58,7 +58,7 @@
         if (n == 0) return;
 
         var m = location.search.match(/[?&]corpus=([a-z]+)/) || [];
-        var corpus = m[1] || "";
+        var corpus = m[1] || "laihe";
 
         $lipsums.moreText(n, corpus, function(sentences) {
             $lipsums.each(function() {
