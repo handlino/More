@@ -37,7 +37,7 @@ for(1..10) {
             shift @children;
         }
 
-        my @p = map { join("，", split(" ", $_)) } map { s{(?<![[:punct:]])$}{。}; $_} grep { s/^\s+//g;s/\s+$//g; $_ } grep { !/(tw\.img\.nextmedia\.com|\*\*.+\*\*)/ } map { ref($_) ? $_->as_trimmed_text : $_ } @children;
+        my @p = map { join("，", split(" ", $_)) } map { s{(?<![[:punct:]])$}{。}; $_} grep { s/^\s+//g;s/\s+$//g; $_ } grep { !/(tw.*\.nextmedia\.com|\*\*.+\*\*)/ } map { ref($_) ? $_->as_trimmed_text : $_ } @children;
         say "=> $_" for @p;
         push @corpus, @p;
     }
