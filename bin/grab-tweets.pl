@@ -21,7 +21,7 @@ sub grab_tweets {
         $r = $t->search({ q => $keyword, page => $_, since_id => $since_id });
         last unless @{$r->{results}};
 
-        push @tweets, map { decode_entities($_) } grep { $_ } map { join "", Acme::Lingua::ZH::Remix->split_corpus($_) } map { simp_to_trad($_) } grep { !/(http|@\S+)/ } map { s{^.+?\s(.+)\s+http://plurk.com/p/.+$}{$1}; $_ } map { $_->{text} } @{$r->{results}};
+        push @tweets, grep { $_ } map { join "", Acme::Lingua::ZH::Remix->split_corpus($_) } map { s/!+/！/g; s/\?+/？/g; s/,+/，/g; s{(?<![[:punct:]])$}{。}; $_ } map { decode_entities($_) }  map { simp_to_trad($_) } grep { !/(http|@\S+)/ } map { s{^.+?\s(.+)\s+http://plurk.com/p/.+$}{$1}; $_ } map { $_->{text} } @{$r->{results}};
     }
 
     @tweets = uniq sort @tweets;
