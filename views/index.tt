@@ -2,16 +2,6 @@
     <div class="section">
         <h2 class="lipsum"></h2><div class="lipsum(6)"></div>
     </div>
-    <div id="books" class="section">
-        <ul class="menu clearfix">
-            <li><a href="/?corpus=nextmedia" title="蘋果日報"><img src="images/book-nextmedia.png" alt="蘋果日報"></a></li>
-            <!-- <li><a href="/"><img src="images/book-oneweekly.png" alt="壹週刊"></a></li> -->
-            <li><a href="/?corpus=tweets" title="twitter"><img src="images/book-twitter.png" alt="twitter"></a></li>
-            <li><a href="/?corpus=laihe" title="賴和"><img src="images/book-laihe.png" alt="賴和"></a></li>
-            <li><a href="/?corpus=xuzhimo" title="徐志摩"><img src="images/book-xuzhimo.png" alt="徐志摩"></a></li>
-        </ul>
-        <div class="slider"><a class="handle"></a></div>
-    </div>
     <div class="section">
         <h2>長官勉勵：</h2>
         <p id="tweet">「<span class="lipsum"></span>」</p>
@@ -22,6 +12,18 @@
             <a href="http://www.plurk.com/" target="_blank" class="tools plurk">plurk this!</a>
         </p>
     </div>
+    <div id="books" class="section">
+        <h2>選擇語料</h2>
+        <ul class="menu clearfix">
+            <!-- <li><a href="/" title="隨機"><img src="images/book-random.png" alt="蘋果日報"></a></li> -->
+            <li><a href="/?corpus=laihe" title="賴和"><img src="images/book-laihe.png" alt="賴和"></a></li>
+            <li><a href="/?corpus=xuzhimo" title="徐志摩"><img src="images/book-xuzhimo.png" alt="徐志摩"></a></li>
+            <li><a href="/?corpus=tweets" title="twitter"><img src="images/book-twitter.png" alt="twitter"></a></li>
+            <li><a href="/?corpus=nextmedia" title="蘋果日報"><img src="images/book-nextmedia.png" alt="蘋果日報"></a></li>
+        </ul>
+        <!-- <div class="slider"><a class="handle"></a></div> -->
+    </div>
+
     <div class="section">
         <h3>喜歡我們產生的文字嗎？你也可以在自己網站動態產生。</h3>
         <ol class="teach">
