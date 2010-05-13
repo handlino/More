@@ -13,14 +13,13 @@ my $config = LoadFile($opts{c}) or die "Fail to load $opts{c}.yml\n";
 
 my @corpus;
 
-my $mech = WWW::Mechanize->new;
+my $mech = WWW::Mechanize->new(autocheck =>0);
 $mech->agent_alias( 'Mac Mozilla' );
 
 $mech->get("http://www.plurk.com/m/login");
 $mech->submit_form(with_fields => {username => $config->{username}, password => $config->{password}});
 
 $mech->get("http://www.plurk.com/m/u/TW_nextmedia");
-say $mech->content;
 
 for(1..10) {
     my $tree = HTML::TreeBuilder::Select->new;
@@ -42,9 +41,10 @@ for(1..10) {
         push @corpus, @p;
     }
 
-    $mech->follow_link(text_regex => qr/next /);
+    $mech->follow_link(text_regex => qr/(next|下一頁)/i) or last;
 }
 
-open OUT, ">>:utf8", "corpus/nextmedia.txt";
+open OUT, ">>", "corpus/nextmedia.txt";
+binmode(OUT, ":utf8");
 say OUT $_ for @corpus;
 close OUT;
