@@ -4,7 +4,8 @@ use strict;
 
 use JSON qw(to_json);
 use Acme::Lingua::ZH::Remix 0.90;
-use Encode qw(encode_utf8);
+use Encode qw(encode_utf8 decode_utf8);
+use XML::RSS;
 
 get '/' => sub {
     template 'index';
@@ -50,6 +51,27 @@ get '/sentences.json' => sub {
     my @sentences = map { $remixer->random_sentence } 1..$n;
     my $json_text = to_json({ sentences => \@sentences });
     return encode_utf8( $cb ? "${cb}(${json_text})" : $json_text );
+};
+
+get '/sentences.rss' => sub {
+    my $self = shift;
+
+    my $rss = XML::RSS->new(version => '1.0', encoding => "utf8");
+    $rss->channel(
+        title => "MoreText",
+        link  => "http://more.handlino.com",
+        description => "The Chinese Lipsum generator you love."
+    );
+
+    for my $remixer (values %remixer) {
+        $rss->add_item(
+            title       => $remixer->random_sentence,
+            link        => "http://more.handlino.com",
+            description => join "", map { $remixer->random_sentence } 1..3,
+        );
+    }
+
+    return encode_utf8($rss->as_string);
 };
 
 true;
