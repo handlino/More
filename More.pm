@@ -49,7 +49,7 @@ get '/sentences.json' => sub {
 
     my @sentences = map { $remixer->random_sentence } 1..$n;
     my $json_text = to_json({ sentences => \@sentences });
-    return encode_utf8( $cb ? "${cb}(${json_text})" : $json_text );
+    return $cb ? "${cb}(${json_text})" : $json_text;
 };
 
 get '/sentences.rss' => sub {
