@@ -2,7 +2,6 @@ package More;
 use Dancer;
 use strict;
 
-use JSON qw(to_json);
 use Acme::Lingua::ZH::Remix 0.90;
 use Encode qw(encode_utf8 decode_utf8);
 use XML::RSS;
