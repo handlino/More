@@ -78,7 +78,7 @@ use File::Path qw(make_path);
 
 get '/pictures/:seed/:size.jpg' => sub {
     my $params = shift;
-    if (params->{seed} =~ /^[0-9a-f]+$/ || params->{size} =~ /^[1-9][0-9]+x[1-9][0-9]+$/) {
+    if (params->{seed} !~ /^[0-9a-f]+$/ || params->{size} !~ /^[1-9][0-9]+x[1-9][0-9]+$/) {
         status 'not_found';
         return "File not found."
     }
@@ -86,6 +86,8 @@ get '/pictures/:seed/:size.jpg' => sub {
     my ($width, $height) = split "x", params->{size};
 
     if ($width > 512 || $height > 512) {
+        status 'not_found';
+        return "File not found."
     }
 
     my $seed = params->{seed};
