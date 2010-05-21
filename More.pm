@@ -74,4 +74,23 @@ get '/sentences.rss' => sub {
     return encode_utf8($rss->as_string);
 };
 
+use Acme::DreamyImage;
+use File::Path qw(make_path);
+
+get '/pictures/:seed/:size.jpg' => sub {
+    my $params = shift;
+    pass unless (params->{seed} =~ /^[0-9a-f]+$/);
+    pass unless (params->{size} =~ /^[1-9][0-9]+x[1-9][0-9]+$/);
+    my ($width, $height) = split "x", params->{size};
+    my $seed = params->{seed};
+
+    my $file = Dancer::setting("public") . "/pictures/${seed}/${width}x${height}.jpg";
+    my $dir  = dirname($file);
+    make_path($dir) unless -d $dir;
+
+    Acme::DreamyImage->new(seed => $seed, width => $width, height => $height)->write(file => $file);
+
+    send_file "/pictures/${seed}/${width}x${height}.jpg";
+};
+
 true;
