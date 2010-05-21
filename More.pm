@@ -82,6 +82,9 @@ get '/pictures/:seed/:size.jpg' => sub {
     pass unless (params->{seed} =~ /^[0-9a-f]+$/);
     pass unless (params->{size} =~ /^[1-9][0-9]+x[1-9][0-9]+$/);
     my ($width, $height) = split "x", params->{size};
+
+    pass if $width > 512 || $height > 512;
+
     my $seed = params->{seed};
 
     my $file = Dancer::setting("public") . "/pictures/${seed}/${width}x${height}.jpg";
