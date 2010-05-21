@@ -85,8 +85,7 @@ get '/pictures/:seed/:size.jpg' => sub {
 
     my ($width, $height) = split "x", params->{size};
 
-    # Limit the area to be 960x960.
-    if ($width * $height > 921600) {
+    if ($width > 960 || $height > 960) {
         status 'not_found';
         return "File not found."
     }
