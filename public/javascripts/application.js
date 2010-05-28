@@ -27,7 +27,7 @@ $(function() {
     $.getJSON('http://search.twitter.com/search.json?q=moretext&callback=?', function(data) {
         $("#recent-tweets").html(
             $.map(data.results, function(x) { 
-                return "<a href=\"http://twitter.com/" + x.from_user + "/status/" + x.id + "\"><li class=\"clearfix\"><img src=\"" + x.profile_image_url + "\"> @" + x.from_user + ": " + x.text + "</li></a>"
+                return "<a href=\"http://twitter.com/" + x.from_user + "/status/" + x.id + "\"><li class=\"clearfix\"><img src=\"" + x.profile_image_url + "\"> @" + x.from_user + " " + x.text + "</li></a>"
             }).join("")
         );
     });
