@@ -264,6 +264,15 @@ a.plurk {
     margin-right: 0;
 }
 
+@-webkit-keyframes avatarrotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: translate(-20px,0) scale(1.414) rotate(-3deg);
+    }
+}
+
 #recent-tweets a {
     color: #000;
 }
@@ -277,4 +286,12 @@ a.plurk {
 #recent-tweets li img {
     float: left;
     margin: 0 5px 5px 0;
+
+    display: block;
+}
+#recent-tweets li:hover img {
+    -webkit-animation-name: avatarrotate;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
 }
