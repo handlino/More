@@ -53,6 +53,11 @@
         </ol>
         <p>或請參考 <a href="/api">MoreText API</a> 文件，直接使用 Javascript 函式與 JSON/JSONP API 端點。</p>
     </div>
+
+    <div class="section">
+        <h3>各位長官的勉勵</h3>
+        <ul id="recent-tweets"></ul>
+    </div>
 </div>
 <div id="sidebar">
     <script type="text/javascript"><!--
