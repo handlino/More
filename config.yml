@@ -1,3 +1,4 @@
+appname: "More"
 layout: "main"
 logger: "file"
-
+charset: "UTF-8"
