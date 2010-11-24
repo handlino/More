@@ -1,5 +1,7 @@
 package More;
-use Dancer;
+use Dancer ':syntax';
+our $VERSION = '1.0';
+
 use strict;
 
 use Acme::Lingua::ZH::Remix 0.90;
