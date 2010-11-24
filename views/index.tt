@@ -41,8 +41,8 @@
             <li>
                 <p>在你的網站加上這段語法：</p>
                 <div class="radius"><textarea class="sample-code" rows="5">
-&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt;
-&lt;script src="http://more.handlino.com/javascripts/moretext-1.0.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="http://more.handlino.com/javascripts/moretext-1.1.js" type="text/javascript"&gt;&lt;/script&gt;
                 </textarea></div>
             </li>
             <li>
