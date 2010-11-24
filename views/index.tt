@@ -37,6 +37,22 @@
 
     <div class="section">
         <h3>喜歡我們產生的文字嗎？你也可以在自己網站動態產生。</h3>
+
+        <p>可用 Bookmarklet：</p>
+        <ol class="teach">
+            <li>
+                將此連結拖到瀏覽器的書籤列： <a class="button" href="javascript:void(function(){var%20_el,_type,_n,_script;_el=document.activeElement;window._moreText=function(data){_el.value+=data.sentences.join('');};if(_el){_type=_el.tagName.toLowerCase();switch(_type){case'textarea':_n=10;break;case'input':_n=1;break;}if(_n){_script=document.createElement('script');_script.src='http://more.handlino.com/sentences.json?_='+Date.now()+'&callback=_moreText&n='+_n;document.body.appendChild(_script);}}}());"><span>MoreText:產生假文</span></a>
+            </li>
+            <li>
+                <p>打開網頁後，先點擊頁面上的輸入區域（input 或 textarea），再點擊 MoreText Bookmarklet</p>
+
+                <div class="radius"><textarea rows="15">您可以直接用這塊文區域來測試！</textarea></div>
+            </li>
+            <li>立刻看到有文字產生！</li>
+        </ol>
+
+        
+        <p>網站開發者，請參考以下步驟：</p>
         <ol class="teach">
             <li>
                 <p>在你的網站加上這段語法：</p>
