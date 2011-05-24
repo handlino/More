@@ -1,3 +1,5 @@
+$.moreText.server = location.protocol + "//" + location.host;
+
 $(function() {
     var t = null;
     var tweet = function() {

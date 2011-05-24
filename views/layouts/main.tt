@@ -26,6 +26,9 @@
 </div>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript">
+if (typeof(window["jQuery"]) == "undefined") document.write('<scri'+'pt src="/javascripts/jquery-1.4.2.min.js"></scr'+'ipt>');
+</script>
 <script type="text/javascript" src="/javascripts/moretext-1.1.js"></script>
 <script type="text/javascript" src="/javascripts/application.js"></script>
 <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
