@@ -41,16 +41,25 @@ get '/sentences.json' => sub {
     my $cb = params->{callback};
     my $n  = params->{n} || 1;
     $n = 1 if $n > 100;
+    my $limit = params->{limit} || 1024;
     my $corpus = params->{corpus};
     my $remixer = $corpus ? $remixer{$corpus} : undef;
 
-    if (!$remixer) {
-        my @corpus = keys %remixer;
-        $remixer = $remixer{ $corpus[int(rand() * @corpus)] };
+    my @sentences;
+    for(1..$n) {
+        unless ($corpus) {
+            my @corpus = keys %remixer;
+            $remixer = $remixer{ $corpus[int(rand() * @corpus)] };
+        }
+
+        my $s = $remixer->random_sentence;
+        push @sentences, $s;
+
+        $limit -= length($s);
+        last if $limit <= 0;
     }
 
-    my @sentences = map { $remixer->random_sentence } 1..$n;
-    my $json_text = to_json({ sentences => \@sentences });
+    my $json_text = decode_utf8+to_json({ sentences => \@sentences });
     return $cb ? "${cb}(${json_text})" : $json_text;
 };
 
