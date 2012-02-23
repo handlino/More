@@ -4,7 +4,7 @@ our $VERSION = '1.0';
 
 use strict;
 
-use Acme::Lingua::ZH::Remix 0.90;
+use Acme::Lingua::ZH::Remix 0.95;
 use Encode qw(encode_utf8 decode_utf8);
 use XML::RSS;
 
@@ -41,9 +41,14 @@ get '/sentences.json' => sub {
     my $cb = params->{callback};
     my $n  = params->{n} || 1;
     $n = 1 if $n > 100;
-    my $limit = params->{limit} || 1024;
+
     my $corpus = params->{corpus};
     my $remixer = $corpus ? $remixer{$corpus} : undef;
+
+    my ($min, $max) = split(",", params->{limit}||"0,140");
+    if ($min && !$max) {
+        ($min, $max) = (0, $min);
+    }
 
     my @sentences;
     for(1..$n) {
@@ -52,11 +57,8 @@ get '/sentences.json' => sub {
             $remixer = $remixer{ $corpus[int(rand() * @corpus)] };
         }
 
-        my $s = $remixer->random_sentence;
+        my $s = $remixer->random_sentence(min => $min, max => $max);
         push @sentences, $s;
-
-        $limit -= length($s);
-        last if $limit <= 0;
     }
 
     my $json_text = decode_utf8+to_json({ sentences => \@sentences });
