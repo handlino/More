@@ -25,7 +25,7 @@ my %remixer = ();
         my $text = <FH>;
         close(FH);
 
-        my $remixer = Acme::Lingua::ZH::Remix->new;
+        my $remixer = Acme::Lingua::ZH::Remix->new(phrases => {});
         $remixer->feed($text);
 
         my $name = $corpus_file;
@@ -33,6 +33,12 @@ my %remixer = ();
         $name =~ s/^corpus\///;
 
         $remixer{$name} = $remixer;
+
+        print STDERR "Remixer: $corpus_file $name\n";
+        if ($name eq 'c9s') {
+            require YAML;
+            print STDERR YAML::Dump(\%remixer);
+        }
     }
 }
 
