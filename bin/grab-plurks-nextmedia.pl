@@ -25,7 +25,18 @@ $mech->get("http://www.plurk.com/m/u/TW_nextmedia");
             shift @children;
         }
 
-        my @p = map { join("，", split(" ", $_)) } map { s{(?<![[:punct:]])$}{。}; s{^....》}{}; $_} grep { s/^\s+//g;s/\s+$//g; $_ } grep { !/(\.nextmedia\.com|\*\*.+\*\*)/ } map { ref($_) ? $_->as_trimmed_text : $_ } @children;
+        my @p = map { join("，", split(" ", $_)) } map {
+            s{(?<![[:punct:]])$}{。};
+            s{^....》}{};
+            $_
+        } grep {
+            s/^\s+//g;s/\s+$//g;
+            $_
+        } grep {
+            !/(\.nextmedia\.com|\*\*.+\*\*)/
+        } map {
+            ref($_) ? $_->as_trimmed_text : $_
+        } @children;
         say "=> $_" for @p;
         push @corpus, @p;
     }
