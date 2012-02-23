@@ -1,0 +1,4 @@
+#!/bin/sh
+./bin/app.pl --daemon --port=$PORT --environment=production
+
+
