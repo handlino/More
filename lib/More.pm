@@ -33,12 +33,6 @@ my %remixer = ();
         $name =~ s/^corpus\///;
 
         $remixer{$name} = $remixer;
-
-        print STDERR "Remixer: $corpus_file $name\n";
-        if ($name eq 'c9s') {
-            require YAML;
-            print STDERR YAML::Dump(\%remixer);
-        }
     }
 }
 
