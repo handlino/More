@@ -12,7 +12,7 @@
        $("p").moreText(3, cb)
        $("p").moreText(3, "laihe", cb)
 
-       $("p").moreText({ n: 3, corpus: "laihe", callback: cb })
+       $("p").moreText({ n: 3, corpus: "laihe", min: 30, max: 150, callback: cb })
      */
     $.fn.moreText = function(n, corpus, cb) {
         var self = this;
@@ -42,7 +42,9 @@
         }
 
         if (!$.isFunction(cb)) {
-            cb = function() { return "default" };
+            cb = function(sentences) { 
+                $(this).text(sentences.join(""));
+            };
         }
 
         var params = { 'n': n };
@@ -68,6 +70,9 @@
     };
 
     $(function() {
+        var m = location.search.match(/[?&]corpus=([a-z]+)/) || [];
+        var corpus = m[1];
+
         var $lipsums = $("*[class*=lipsum]");
 
         var n = 0;
@@ -78,8 +83,6 @@
                 n += parseInt(matched[1])||1;
             }
             else if ( matched[2] ) {
-                console.log(matched);
-
                 var params = { 
                     'n': matched[1],
                     'callback': function(sentences) {
@@ -94,6 +97,9 @@
                 }
                 else {
                     params["max"] = matched[2];
+                }
+                if (corpus) {
+                    params["corpus"] = corpus;
                 }
 
                 $(self).moreText(params);
@@ -119,8 +125,6 @@
                 }
             };
 
-            var m = location.search.match(/[?&]corpus=([a-z]+)/) || [];
-            var corpus = m[1];
             if (corpus) {
                 params["corpus"] = corpus;
             }

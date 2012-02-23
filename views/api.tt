@@ -29,13 +29,13 @@
     </div>
 
     <div class="section">
-        <h2>moretext-1.0.js</h2>
+        <h2>moretext-1.2.js</h2>
         <p>
-            <code>moretext-1.0.js</code> 為一 jQuery Plugin。以 JSONP 的形式將新產生的句子取回。其永久網址為 <a href="http://more.handlino.com/javascripts/moretext-1.0.js"><code>http://more.handlino.com/javascripts/moretext-1.0.js</code></a>。使用時必需先載入 jQuery。
+            <code>moretext-1.0.js</code> 為一 jQuery Plugin。以 JSONP 的形式將新產生的句子取回。其永久網址為 <a href="http://more.handlino.com/javascripts/moretext-1.2.js"><code>http://more.handlino.com/javascripts/moretext-1.0.js</code></a>。使用時必需先載入 jQuery。
         </p>
         <dl>
             <dt><code>$.moreText.version</code></dt>
-            <dd><p>函式版本。目前為 1.0。</p></dd>
+            <dd><p>函式版本。目前為 1.2。</p></dd>
 
             <dt><code>$.moreText.server</code></dt>
             <dd><p>API 的伺服器。目前為 <code>http://more.handlino.com</code>。</p></dd>
@@ -53,6 +53,19 @@ $("p").moreText(5, function(sentences) { ... });
 </code></pre>
                 <p><code>n</code> 的數值應於 1 至 100 間。若不在此範圍，或不為整數，則視為 1。</p>
             </dd>
+
+            <dt><code>$.fn.moreText(options)</code></dt>
+            <dd>
+                <p>前一方法的另一種呼叫形式。參數 <code>options</code> 為一物件，需具備以下屬性：</p>
+                <ul>
+                    <li><code>n</code>: 應為正整數，表示產生的句子數。</li>
+                    <li><code>min</code>: 應為正整數，表示每句字數底限。不得低於 0。不指定時預設為 0。</li>
+                    <li><code>max</code>: 應為正整數，表示每句字數上限。不得低於 min 值。預設為 140。</li>
+                    <li><code>corpus</code>: 應為字串，表示使用的語料。可使用的值為：<code>"laihe", "xuzhimo", "nextmedia", "tweets", "c9s"</code></li>
+                    <li><code>callback</code>: 應為函式。函式說明同前述參數 <code>cb</code>。</li>
+                </ul>
+            </dd>
+
         </dl>
     </div>
 </div>
