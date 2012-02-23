@@ -56,6 +56,9 @@ get '/sentences.json' => sub {
         ($min, $max) = (0, $min);
     }
 
+    $min = 0   if $min < 0;
+    $max = 500 if $max > 500;
+
     my @sentences;
     for(1..$n) {
         unless ($corpus) {
