@@ -1,4 +1,4 @@
-#!/Users/gugod/local/bin/perl
+#!/usr/bin/env perl
 use Dancer '1.2000';
 use More;
 dance;
