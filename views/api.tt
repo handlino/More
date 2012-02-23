@@ -31,7 +31,7 @@
     <div class="section">
         <h2>moretext-1.2.js</h2>
         <p>
-            <code>moretext-1.2.js</code> 為一 jQuery Plugin。以 JSONP 的形式將新產生的句子取回。其永久網址為 <a href="http://more.handlino.com/javascripts/moretext-1.2.js"><code>http://more.handlino.com/javascripts/moretext-1.0.js</code></a>。使用時必需先載入 jQuery。
+            <code>moretext-1.2.js</code> 為一 jQuery Plugin。以 JSONP 的形式將新產生的句子取回。其永久網址為 <a href="http://more.handlino.com/javascripts/moretext-1.2.js"><code>http://more.handlino.com/javascripts/moretext-1.2.js</code></a>。使用時必需先載入 jQuery。
         </p>
         <dl>
             <dt><code>$.moreText.version</code></dt>
