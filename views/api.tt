@@ -1,5 +1,34 @@
 <div id="main">
     <div class="section">
+        <h2>API端點</h2>
+        <dl>
+            <dt>GET /sentences.json</dt>
+            <dd>
+                <p>傳回以 JSON 格式包裝的的句子。例:</p>
+                <pre><code>{"sentences":[ "風雨又調和著節奏，保不定不鬧出事來，也就可以得到百般的快樂。" ]}</code></pre>
+
+                <p>參數:</p>
+                <dl>
+                    <dt>n</dt>
+                    <dd>
+                        <p>可有可無。表示需產生的句子數。應為 1 至 100 中間的整數，若不符此規定，則預設為 1。</p>
+                    </dd>
+                    <dt>limit = n [,m]</dt>
+                    <dd>
+                        <p>可有可無。用來控制每句話的字數。n 與 m 應為大於 0  的數目字，若不符合此規定，則視為無效。若無指定，表示每句話的長度不定，可能很短，也可能很長。</p>
+                        <p>若只指定 n（例：<code>limit=17</code>）則表示每句話最長為 n 個字。若同時指定 n 與 m（例：<code>limit=5:19</code>），則表示每句話的長度在 n 到 m 中間。</p>
+                        <p>字數的計算一律包含標點符號。</p>
+                    </dd>
+                    <dt>callback</dt>
+                    <dd>
+                        <p>可有可無。表示產生 JSONP 形式的輸出。此值應為一事先定義之 Javascript 函式名稱。</p>
+                    </dd>
+                </dl>
+            </dd>
+        </dl>
+    </div>
+
+    <div class="section">
         <h2>moretext-1.0.js</h2>
         <p>
             <code>moretext-1.0.js</code> 為一 jQuery Plugin。以 JSONP 的形式將新產生的句子取回。其永久網址為 <a href="http://more.handlino.com/javascripts/moretext-1.0.js"><code>http://more.handlino.com/javascripts/moretext-1.0.js</code></a>。使用時必需先載入 jQuery。
@@ -26,41 +55,21 @@ $("p").moreText(5, function(sentences) { ... });
             </dd>
         </dl>
     </div>
-    <div class="section">
-        <h2>API端點</h2>
-        <dt>GET /sentences.json</dt>
-            <dd>
-                <p>傳回以 JSON 格式包裝的的句子。例:</p>
-                <pre><code>{"sentences":[ "風雨又調和著節奏，保不定不鬧出事來，也就可以得到百般的快樂。" ]}</code></pre>
-
-                <p>參數:</p>
-                <dl>
-                    <dt>n</dt>
-                    <dd>
-                        <p>可有可無。表示需產生的句子數。應為 1 至 100 中間的整數，若不符此規定，則預設為 1。</p>
-                    </dd>
-                    <dt>callback</dt>
-                    <dd>
-                        <p>可有可無。表示產生 JSONP 形式的輸出。此值應為一事先定義之 Javascript 函式名稱。</p>
-                    </dd>
-                </dl>
-            </dd>
-        </dl>
-    </div>
 </div>
 <div id="sidebar">
+    <div class="section">
+        <h3>API端點</h3>
+        <ul>
+            <li><code>/sentences.json</code></li>
+        </ul>
+    </div>
+
     <div class="section">
         <h3>moretext-1.0.js</h3>
         <ul>
             <li><code>$.fn.moreText(n, cb)</code></li>
             <li><code>$.moreText.version</code></li>
             <li><code>$.moreText.server</code></li>
-        </ul>
-    </div>
-    <div class="section">
-        <h3>API端點</h3>
-        <ul>
-            <li><code>/sentences.json</code></li>
         </ul>
     </div>
 </div>
