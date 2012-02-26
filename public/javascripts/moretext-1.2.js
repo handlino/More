@@ -64,7 +64,7 @@
             params["corpus"] = corpus;
         }
 
-        $.getJSON($.moreText.server + "/sentences.json", params, function(data) {
+        $.getJSON($.moreText.server + "/sentences.json?callback=?", params, function(data) {
             cb.call(self, data.sentences);
         });
     };
