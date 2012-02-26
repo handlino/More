@@ -86,7 +86,6 @@
                 var params = { 
                     'n': matched[1],
                     'callback': function(sentences) {
-                        console.log(sentences.join(""));
                         $(this).append(sentences.join(""));
                     }
                 };
