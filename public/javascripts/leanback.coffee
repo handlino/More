@@ -1,16 +1,14 @@
-image_loaded = false
-text_loaded = false
+changing = 0
 
 change = ->
-    console.log("change")
-    if (text_loaded && image_loaded)
+    if (changing == 3)
         $("#screen").css("background-image", "url(" + $("#loader img").attr("src") + ")")
         $("#loader img").remove()
         $("#screen p").html( $("#loader p").html() )
-        image_loaded = false
-        text_loaded = false
+        changing = 0
 
-    else if (!text_loaded && !image_loaded)
+    else if (changing == 0)
+        changing = 1
         load_text()
         load_background()
 
@@ -19,18 +17,17 @@ change = ->
 load_text = ->
     $("#loader p").moreText { 'n': 3, 'max': 45, 'callback': (sentences) ->
         $(this).html(sentences.join("<br>"))
-        text_loaded = true
+        changing = changing + 1
     }
 
 load_background = ->
     url = location.protocol + "//" + location.host + "/pictures/" + parseInt(Math.random()*1000000000000).toString(16) + "/960x960.jpg";
     img = new Image();
     $(img).on "load", ->
-        image_loaded = true
+        changing = changing + 1
     $("#loader").append(img)
     img.src = url
 
 jQuery ->
     jQuery.moreText.server = location.protocol + "//" + location.host
     change()
-

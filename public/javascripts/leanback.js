@@ -1,19 +1,16 @@
 (function() {
-  var change, image_loaded, load_background, load_text, text_loaded;
+  var change, changing, load_background, load_text;
 
-  image_loaded = false;
-
-  text_loaded = false;
+  changing = 0;
 
   change = function() {
-    console.log("change");
-    if (text_loaded && image_loaded) {
+    if (changing === 3) {
       $("#screen").css("background-image", "url(" + $("#loader img").attr("src") + ")");
       $("#loader img").remove();
       $("#screen p").html($("#loader p").html());
-      image_loaded = false;
-      text_loaded = false;
-    } else if (!text_loaded && !image_loaded) {
+      changing = 0;
+    } else if (changing === 0) {
+      changing = 1;
       load_text();
       load_background();
     }
@@ -26,7 +23,7 @@
       'max': 45,
       'callback': function(sentences) {
         $(this).html(sentences.join("<br>"));
-        return text_loaded = true;
+        return changing = changing + 1;
       }
     });
   };
@@ -36,7 +33,7 @@
     url = location.protocol + "//" + location.host + "/pictures/" + parseInt(Math.random() * 1000000000000).toString(16) + "/960x960.jpg";
     img = new Image();
     $(img).on("load", function() {
-      return image_loaded = true;
+      return changing = changing + 1;
     });
     $("#loader").append(img);
     return img.src = url;
