@@ -16,6 +16,10 @@ get '/api' => sub {
     template 'api';
 };
 
+get '/leanback' => sub {
+    template 'leanback', {}, { layout => undef };
+};
+
 my %remixer = ();
 
 {
