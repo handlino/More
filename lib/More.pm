@@ -21,7 +21,6 @@ get '/leanback' => sub {
 };
 
 my %remixer = ();
-
 {
     for my $corpus_file (<corpus/*.txt>) {
         open(FH, "<:utf8", $corpus_file);
@@ -39,6 +38,7 @@ my %remixer = ();
         $remixer{$name} = $remixer;
     }
 }
+my @corpus = keys %remixer;
 
 get '/sentences.json' => sub {
     my $self = shift;
@@ -60,7 +60,6 @@ get '/sentences.json' => sub {
     my @sentences;
     for(1..$n) {
         unless ($corpus) {
-            my @corpus = keys %remixer;
             $remixer = $remixer{ $corpus[int(rand() * @corpus)] };
         }
 
