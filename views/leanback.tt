@@ -2,14 +2,17 @@
 <html>
     <head>
 <link rel="stylesheet" href="/stylesheets/leanback.css" type="text/css" media="screen" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery-1.7.1.min.js" type="text/javascript"></script>
 <script src="/javascripts/moretext-1.2.js" type="text/javascript"></script>
 <script src="/javascripts/leanback.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="screen">
-            <h1 class="lipsum(1,20)"></h1>
-            <p class="lipsum(3,144)"></p>
+            <p></p>
+        </div>
+
+        <div id="loader">
+            <p></p>
         </div>
     </body>
 </html>
