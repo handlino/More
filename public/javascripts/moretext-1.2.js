@@ -43,7 +43,7 @@
 
         if (!$.isFunction(cb)) {
             cb = function(sentences) { 
-                $(this).text(sentences.join(""));
+                $(self).text(sentences.join(""));
             };
         }
 
