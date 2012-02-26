@@ -65,10 +65,20 @@ get '/sentences.json' => sub {
     }
 
     my $json_text = decode_utf8+to_json({ sentences => \@sentences });
+
+    if ($cb) {
+        content_type 'application/javascript';
+    }
+    else {
+        content_type 'application/json'
+    }
+
     return $cb ? "${cb}(${json_text})" : $json_text;
 };
 
 get '/sentences.rss' => sub {
+    content_type 'application/rss+xml';
+
     my $self = shift;
 
     my $rss = XML::RSS->new(version => '1.0', encoding => "utf8");
