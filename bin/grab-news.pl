@@ -9,16 +9,21 @@ use IO::All;
 use Scalar::Util;
 use List::MoreUtils qw(uniq);
 
-my $feed = XML::Feed->parse(URI->new('http://news.google.com.tw/news?output=rss'))
-    or die XML::Feed->errstr;
+sub fetch_news_titles {
+    my @titles;
 
-my @titles = io("corpus/news.txt")->assert->utf8->chomp->getlines;
+    my $feed = XML::Feed->parse(URI->new('http://news.google.com.tw/news?output=rss'))
+        or die XML::Feed->errstr;
 
-for my $entry ($feed->entries) {
-    push @titles, $entry->title =~ s/ - .+?$//r =~ s/[_ ]/，/gr =~ s/$/。/r;
+    for my $entry ($feed->entries) {
+        push @titles, $entry->title =~ s/ - .+?$//r =~ s/[_ ]/，/gr =~ s/$/。/r;
+    }
+
+    return @titles;
 }
 
-@titles = uniq sort @titles;
+my @old_titles = io("corpus/news.txt")->assert->utf8->chomp->getlines;
+my @titles = uniq sort fetch_news_titles(), @old_titles;
 
 my $out = io("corpus/news.txt")->utf8;
 $out->println($_) for @titles;
