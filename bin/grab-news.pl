@@ -8,6 +8,11 @@ use XML::Feed;
 use IO::All;
 use List::MoreUtils qw(uniq);
 
+my @dirs = io->catfile(__FILE__)->absolute->splitdir();
+splice @dirs, -2;
+
+my $app_root = io->catdir(@dirs);
+
 sub fetch_news_titles {
     my @titles;
 
@@ -25,9 +30,9 @@ sub fetch_news_titles {
     return @titles;
 }
 
-my @old_titles = io("corpus/news.txt")->assert->utf8->chomp->getlines;
+my @old_titles = $app_root->catfile("corpus", "news.txt")->assert->utf8->chomp->getlines;
 my @new_titles = fetch_news_titles();
 my @titles = uniq sort @new_titles, @old_titles;
 
-my $out = io("corpus/news.txt")->utf8;
+my $out = $app_root->catfile("corpus", "news.txt")->utf8;
 $out->println($_) for @titles;
