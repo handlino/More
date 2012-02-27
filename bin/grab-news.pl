@@ -6,7 +6,6 @@ binmode STDOUT, ":utf8";
 use URI;
 use XML::Feed;
 use IO::All;
-use Scalar::Util;
 use List::MoreUtils qw(uniq);
 
 sub fetch_news_titles {

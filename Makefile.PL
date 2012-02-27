@@ -14,7 +14,9 @@ WriteMakefile(
         'Net::Twitter' => 0,
         'WWW::Mechanize' => 0,
         'XML::RSS' => 0,
+        'XML::Feed' => 0,
         'YAML' => 0,
         'common::sense' => 0,
+        'IO::All' => 0
     }
 );
