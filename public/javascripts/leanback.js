@@ -34,9 +34,9 @@
   };
 
   load_background = function() {
-    var grey, img, random_height, random_width, too_long, url;
-    random_width = 960;
+    var grey, img, random_height, random_width, url;
     random_height = Math.round(Math.random() * 460 + 500);
+    random_width = Math.round(Math.random() * 760 + 200);
     grey = "";
     if (Math.random() > 0.5) grey = "g";
     if (mode === "kitten") {
@@ -44,16 +44,12 @@
     } else if (mode === "lorempixel") {
       url = "http://lorempixel.com/" + grey + "/" + random_width + "/" + random_height;
     } else if (mode === "placeholdit") {
-      url = "http://placeholdit/" + random_width + "x" + random_height;
+      url = "http://placehold.it/" + random_width + "x" + random_height;
     } else {
       url = location.protocol + "//" + location.host + "/pictures/" + parseInt(Math.random() * 1000000000000).toString(16) + "/" + random_width + "x" + random_height + ".jpg";
     }
-    too_long = setTimeout(function() {
-      return changing = changing + 1;
-    }, 7000);
     img = new Image();
     $(img).on("load", function() {
-      clearTimeout(too_long);
       return changing = changing + 1;
     });
     $("#loader").append(img);

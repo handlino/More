@@ -26,8 +26,8 @@ load_text = ->
     }
 
 load_background = ->
-    random_width  = 960
     random_height = Math.round(Math.random() * 460 + 500)
+    random_width  = Math.round(Math.random() * 760 + 200)
     grey = ""
     grey = "g" if Math.random() > 0.5
 
@@ -38,18 +38,13 @@ load_background = ->
         url = "http://lorempixel.com/" + grey + "/" + random_width + "/" + random_height
 
     else if mode == "placeholdit"
-        url = "http://placeholdit/" + random_width + "x" + random_height
+        url = "http://placehold.it/" + random_width + "x" + random_height
 
     else # "dreamy"
         url = location.protocol + "//" + location.host + "/pictures/" + parseInt(Math.random()*1000000000000).toString(16) + "/" + random_width + "x" + random_height +  ".jpg";
 
-    too_long = setTimeout ->
-        changing = changing + 1
-    , 7000
-
     img = new Image();
     $(img).on "load", ->
-        clearTimeout too_long
         changing = changing + 1
     $("#loader").append(img)
     img.src = url
