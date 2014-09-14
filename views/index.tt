@@ -62,7 +62,7 @@
                 </textarea></div>
             </li>
             <li>
-                <p>在想要填入文字的標籤加上 <code>class="ipsum(1)"</code>，括號裡的數字代表你希望填入多少句話。省略括號時則為一句。</p>
+                <p>在想要填入文字的標籤加上 <code>class="lipsum(1)"</code>，括號裡的數字代表你希望填入多少句話。省略括號時則為一句。</p>
                 <div class="radius"><textarea class="sample-code" rows="2">長官勉勵我們：「&lt;span class="lipsum"&gt;&lt;/span&gt;」</textarea></div>
                 <p>如需限制每一句的字數，可以加入第二個參數表示字數上限，如 <code>class="lipsum(1,60)"</code> 表示產生一句 60 字以內的句子。或是以範圍表示每一句的字數：<code>class="lipsum(3,20-50)"</code>。前例表示產生三句話，每句話的字數皆為 20 字到 50 字間。請注意此處的小括號中間不能含有空白。</p>
             </li>
