@@ -16,7 +16,7 @@ $(function() {
     };
     t = setInterval(tweet, 1000);
 
-    var m = location.search.match(/[?&]corpus=([a-z]+)/) || [];
+    var m = location.search.match(/[?&]corpus=([a-z0-9]+)/) || [];
     var corpus = m[1] || "";
 
     $("#reload-tweet").bind("click", function() {
