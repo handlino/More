@@ -70,7 +70,7 @@
     };
 
     $(function() {
-        var m = location.search.match(/[?&]corpus=([a-z]+)/) || [];
+        var m = location.search.match(/[?&]corpus=([a-z0-9]+)/) || [];
         var corpus = m[1];
 
         var $lipsums = $("*[class*=lipsum]");
