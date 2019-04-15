@@ -4,8 +4,8 @@ our $VERSION = '1.0';
 
 use strict;
 
-use Acme::Lingua::ZH::Remix 0.98;
-use Encode qw(encode_utf8 decode_utf8);
+use Acme::Lingua::ZH::Remix;
+use Encode qw(encode_utf8);
 use XML::RSS;
 
 get '/' => sub {
