@@ -4,7 +4,7 @@ our $VERSION = '1.0';
 
 use strict;
 
-use Acme::Lingua::ZH::Remix 0.95;
+use Acme::Lingua::ZH::Remix 0.98;
 use Encode qw(encode_utf8 decode_utf8);
 use XML::RSS;
 
@@ -67,8 +67,7 @@ get '/sentences.json' => sub {
         push @sentences, $s;
     }
 
-    my $json_text = decode_utf8+to_json({ sentences => \@sentences });
-
+    my $json_text = to_json({ sentences => \@sentences });
     if ($cb) {
         content_type 'application/javascript';
     }

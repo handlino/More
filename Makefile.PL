@@ -5,7 +5,7 @@ WriteMakefile(
     PREREQ_PM => {
         'Plack::Request' => 0.9974,
         'Dancer' => '1.2000',
-        'Acme::Lingua::ZH::Remix' => '0.96',
+        'Acme::Lingua::ZH::Remix' => '0.98',
         'Encode::HanConvert' => 0,
         'HTML::Entities' => 0,
         'HTML::TreeBuilder::Select' => 0,
