@@ -12,3 +12,4 @@ requires 'XML::Feed' => 0;
 requires 'YAML' => 0;
 requires 'common::sense' => 0;
 requires 'IO::All' => 0;
+requires 'JSON' => 0;
