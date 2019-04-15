@@ -1,7 +1,7 @@
 (function() {
   var change, changing, load_background, load_text, mode, modes;
 
-  modes = ["kitten", "dreamy", "lorempixel", "placeholdit"];
+  modes = ["kitten", "picsum", "lorempixel", "placeholdit"];
 
   mode = "kitten";
 
@@ -35,8 +35,8 @@
 
   load_background = function() {
     var grey, img, random_height, random_width, url;
-    random_height = Math.round(Math.random() * 460 + 500);
-    random_width = Math.round(Math.random() * 760 + 200);
+    random_height = window.innerHeight || Math.round(Math.random() * 460 + 500);
+    random_width = window.innerWidth || Math.round(Math.random() * 760 + 200);
     grey = "";
     if (Math.random() > 0.5) grey = "g";
     if (mode === "kitten") {
@@ -45,15 +45,17 @@
       url = "http://lorempixel.com/" + grey + "/" + random_width + "/" + random_height;
     } else if (mode === "placeholdit") {
       url = "http://placehold.it/" + random_width + "x" + random_height;
-    } else {
-      url = location.protocol + "//" + location.host + "/pictures/" + parseInt(Math.random() * 1000000000000).toString(16) + "/" + random_width + "x" + random_height + ".jpg";
+    } else if (mode === "picsum") {
+      url = "http://picsum.photos/" + random_width + "/" + random_height + "/?random";
     }
-    img = new Image();
-    $(img).on("load", function() {
-      return changing = changing + 1;
-    });
-    $("#loader").append(img);
-    return img.src = url;
+    if (url) {
+      img = new Image();
+      $(img).on("load", function() {
+        return changing = changing + 1;
+      });
+      $("#loader").append(img);
+      return img.src = url;
+    }
   };
 
   jQuery(function() {
