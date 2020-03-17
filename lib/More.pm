@@ -84,7 +84,7 @@ get '/sentences.rss' => sub {
 
     my $self = shift;
 
-    my $rss = XML::RSS->new(version => '1.0', encoding => "utf8");
+    my $rss = XML::RSS->new(version => '2.0', encoding => "UTF-8");
     $rss->channel(
         title => "MoreText",
         link  => "http://more.handlino.com",
@@ -93,9 +93,8 @@ get '/sentences.rss' => sub {
 
     for my $remixer (values %remixer) {
         $rss->add_item(
-            title       => $remixer->random_sentence,
-            link        => "http://more.handlino.com",
-            description => join "", map { $remixer->random_sentence } 1..3,
+            title       => $remixer->random_sentence(max => 42),
+            description => join "\n\n", map { $remixer->random_sentence } 1..4,
         );
     }
 
