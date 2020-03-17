@@ -2,6 +2,7 @@ package More;
 use Dancer ':syntax';
 our $VERSION = '1.0';
 
+use utf8;
 use strict;
 
 use Acme::Lingua::ZH::Remix;
@@ -24,9 +25,19 @@ my %remixer = ();
 {
     for my $corpus_file (<corpus/*.txt>) {
         open(FH, "<:utf8", $corpus_file);
-        local $/ = undef;
-        my $text = <FH>;
-        close(FH);
+
+        my %lines;
+        while (my $line = <FH>) {
+            chomp($line);
+            if ($line !~ /\p{Punct}\z/) {
+                for my $p ("、", "，", "。", "；") {
+                    $lines{$line . $p} = 1;
+                }
+            } else {
+                $lines{$line} = 1;
+            }
+        }
+        my $text = join "\n", keys %lines;
 
         my $remixer = Acme::Lingua::ZH::Remix->new(phrases => {});
         $remixer->feed($text);
