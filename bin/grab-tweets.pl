@@ -1,10 +1,12 @@
 #!/usr/bin/env perl
-use common::sense;
+use v5.14;
+use strict;
+use warnings;
 use utf8;
 
-# use Acme::Lingua::ZH::Remix;
+use Getopt::Long qw(GetOptions);
 use Encode::HanConvert qw(simp_to_trad);
-use HTML::Entities;
+
 use IO::All;
 use List::MoreUtils qw(uniq);
 use Net::Twitter;
@@ -12,66 +14,70 @@ use URI;
 use XML::Feed;
 use YAML;
 
+my %opts;
+GetOptions(
+    \%opts,
+    "config|c=s",
+) or die("Unrecognised CLI options.");
+
+($opts{config} && -f $opts{config}) or die "Need a config file";
+
+my $config = YAML::LoadFile($opts{config}) or die "Failed to read the configuration file\n";
+
 my @dirs = io->catfile(__FILE__)->absolute->splitdir();
 splice @dirs, -2;
 
 my $app_root = io->catdir(@dirs);
 
 sub grab_tweets {
-    my ($keyword, $since_id) = @_;
-    my $t = Net::Twitter->new(traits => ['API::REST', 'API::Search']);
+    my ($keyword) = @_;
+    my $t = Net::Twitter->new(
+        traits => ['API::RESTv1_1'],
+        consumer_key        => $config->{consumer_key},
+        consumer_secret     => $config->{consumer_secret},
+        access_token        => $config->{access_token},
+        access_token_secret => $config->{access_token_secret},
+    );
     my $r;
     my @tweets;
 
-    for (1..5) {
-        $r = $t->search({ q => $keyword, page => $_, since_id => $since_id });
-        last unless @{$r->{results}};
-
-        push @tweets, grep { $_ } map { s/!+/！/g; s/\?+/？/g; s/,+/，/g; s{(?<![[:punct:]])$}{。}; $_ } map { decode_entities($_) }  map { simp_to_trad($_) } grep { !/(http|@\S+)/ } map { s{^.+?\s(.+)\s+http://plurk.com/p/.+$}{$1}; $_ } map { $_->{text} } @{$r->{results}};
-    }
+    $r = $t->search( $keyword );
+    push @tweets, grep {
+        !/(http|@\S+)/
+    } map {
+        $_->{text}
+    } @{$r->{statuses}};
 
     @tweets = uniq sort @tweets;
 
-    return {
-        max_id => $r->{max_id},
-        tweets => \@tweets
-    }
-}
-
-my $config_file = $app_root->catfile("logs", "tweets.yml");
-my $config = -f $config_file ? YAML::LoadFile($config_file) : [{ q => "不賴", since_id => 1 }, { q => "咖啡", since_id => 1 }];
-
-for my $q (@ARGV) {
-    utf8::decode($q) unless utf8::is_utf8($q);
-
-    unshift @$config, { q => $q, since_id => 1 }
+    return @tweets;
 }
 
 my @new_tweets;
 
-for my $c (@$config) {
-    my $r = grab_tweets($c->{q}, $c->{since_id});
-    $c->{since_id} = $r->{max_id};
-    push @new_tweets, @{$r->{tweets}};
+my @query = qw(咖啡 不賴);
+
+for my $q (@ARGV) {
+    utf8::decode($q) unless utf8::is_utf8($q);
+    unshift @query, $q;
 }
 
-YAML::DumpFile($config_file, $config);
+for my $q (@query) {
+    push @new_tweets, grab_tweets($q);
+}
 
 my @old_tweets = $app_root->catfile("corpus", "tweets.txt")->assert->utf8->chomp->getlines;
 
-if (@new_tweets + @old_tweets > 1024) {
-    my $n = 1024 - @new_tweets;
-    $n = 0 if ($n < 0);
-    @old_tweets = @old_tweets[ 0 .. $n ];
-}
-
-my @tweets = uniq sort @new_tweets, @old_tweets;
-
-if (@tweets > 1024) {
-    my $n = @tweets - 1024;
-    @old_tweets = @old_tweets[0..$#old_tweets-$n];
-    @tweets = uniq sort @new_tweets, @old_tweets;
-}
+my @tweets = sort { length($b) <=> length($a) } map {
+    s/!+/！/g;
+    s/\?+/？/g;
+    s/,+/，/g;
+    $_
+} grep {
+    /\p{Han}{2}/ && /\p{Punct}/ && length($_) > 6
+} map {
+    split /\r?\n+/
+} uniq @new_tweets, @old_tweets;
 
 my $out = $app_root->catfile("corpus", "tweets.txt")->utf8;
 $out->println($_) for @tweets;
